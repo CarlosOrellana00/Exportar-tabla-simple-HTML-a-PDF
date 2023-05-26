@@ -20,6 +20,9 @@
         </div>
       </div>
       <div class="card-body">
+        <button id="btnExportar" class="m-3 btn btn-danger">
+          Exportar Excel
+        </button>
         <table id="tabla" class="table table-bordered table-hover text-center">
           <thead>
             <th>N°</th>
@@ -57,5 +60,18 @@
       </div>
     </div>
   </div>
+  <script src="assets/js/html2pdf.bundle.min.js"></script>
+  <script>
+    document.getElementById('btnExportar').onclick = function(){
+      var opt = {
+        margin:       1,
+        filename:     'examplePDF.pdf',
+        image:       { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale:2 },
+        jsPDF:       { unit: 'in', format: 'letter', orientation:'portrait' }
+      };
+      html2pdf(element, opt);
+    };
+  </script>
 </body>
 </html>
